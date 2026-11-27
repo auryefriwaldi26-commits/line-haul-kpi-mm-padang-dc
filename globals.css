@@ -1,0 +1,53 @@
+@import '@primer/primitives/dist/css/base/size/size.css';
+@import '@primer/primitives/dist/css/base/typography/typography.css';
+@import '@primer/primitives/dist/css/base/motion/motion.css';
+@import '@primer/primitives/dist/css/functional/size/border.css';
+@import '@primer/primitives/dist/css/functional/size/breakpoints.css';
+@import '@primer/primitives/dist/css/functional/size/size-coarse.css';
+@import '@primer/primitives/dist/css/functional/size/size-fine.css';
+@import '@primer/primitives/dist/css/functional/size/size.css';
+@import '@primer/primitives/dist/css/functional/size/viewport.css';
+@import '@primer/primitives/dist/css/functional/typography/typography.css';
+@import '@primer/primitives/dist/css/functional/themes/light.css';
+@import '@primer/primitives/dist/css/functional/themes/dark.css';
+@import '@primer/primitives/dist/css/functional/themes/dark-dimmed.css';
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; background: #f4f6f9; color: #172033; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: inherit; }
+.lh-shell { max-width: 1440px; margin: auto; padding: 32px; }
+.lh-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 28px; }
+.lh-eyebrow { color: #64748b; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin: 0 0 8px; }
+.lh-header h1 { font-size: clamp(24px, 4vw, 34px); margin: 0; letter-spacing: -1px; }
+.lh-subtitle { color: #64748b; margin: 8px 0 0; }
+.lh-secondary, .lh-primary { border: 0; border-radius: 8px; padding: 11px 16px; cursor: pointer; font-weight: 700; }
+.lh-secondary { background: white; color: #334155; border: 1px solid #dbe2ea; }
+.lh-primary { background: #155eef; color: white; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.lh-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.lh-card, .lh-panel { background: white; border: 1px solid #e3e8ef; border-radius: 12px; box-shadow: 0 2px 8px #15243b08; }
+.lh-card { padding: 20px; min-height: 135px; }
+.lh-card p { margin: 0 0 14px; font-size: 11px; letter-spacing: 1px; font-weight: 700; color: #64748b; }
+.lh-card strong { display: block; font-size: 27px; }
+.lh-card small { display: block; color: #64748b; margin-top: 8px; }
+.lh-panel { padding: 22px; margin-bottom: 18px; }
+.lh-panel-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
+.lh-panel h2 { font-size: 15px; margin: 0; letter-spacing: .5px; }
+.lh-panel-head p { color: #64748b; margin: 6px 0 0; font-size: 13px; }
+.lh-tag { background: #eef4ff; color: #155eef; border-radius: 20px; padding: 6px 10px; font-size: 11px; font-weight: 700; }
+.lh-schedule-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.lh-schedule-row strong, .lh-schedule-row small { display: block; }
+.lh-schedule-row small { color: #64748b; margin-top: 6px; }
+.lh-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: end; }
+.lh-form label { display: flex; flex-direction: column; gap: 8px; color: #475569; font-size: 12px; font-weight: 700; }
+.lh-form input { width: 100%; border: 1px solid #cbd5e1; border-radius: 7px; padding: 10px; background: white; color: #172033; font-size: 13px; }
+.lh-key { grid-column: span 2; }
+.lh-message { background: #f1f5f9; border-radius: 8px; padding: 12px; font-size: 13px; margin: 16px 0 0; }
+.lh-empty, .lh-footer { color: #64748b; font-size: 13px; }
+.lh-table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; text-align: left; }
+th, td { padding: 12px 14px; border-bottom: 1px solid #edf0f4; white-space: nowrap; }
+th { color: #64748b; font-size: 11px; letter-spacing: .5px; }
+.lh-footer { padding: 8px 2px 24px; }
+@media (max-width: 850px) { .lh-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lh-form { grid-template-columns: 1fr 1fr; } .lh-key { grid-column: span 2; } }
+@media (max-width: 560px) { .lh-shell { padding: 18px 14px; } .lh-header { align-items: flex-start; } .lh-grid { gap: 10px; } .lh-card { padding: 14px; min-height: 125px; } .lh-card strong { font-size: 21px; } .lh-panel { padding: 16px; } .lh-form { grid-template-columns: 1fr; } .lh-key { grid-column: auto; } .lh-schedule-row { align-items: flex-start; flex-direction: column; } }
