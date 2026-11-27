@@ -1,6 +1,6 @@
 'use client'
 
-import { Label, Stack, Text } from '@primer/react'
+import { Label, Link, Stack, Text } from '@primer/react'
 import { PackageIcon } from '@primer/octicons-react'
 import NextLink from 'next/link'
 
@@ -47,7 +47,16 @@ export function AppHeader() {
               </Text>
             </Stack>
           </NextLink>
-          <Label variant="secondary">Hub Jakarta</Label>
+          <Stack direction="horizontal" gap="normal" align="center">
+            <Link
+              as={NextLink}
+              href="/line-haul"
+              style={{ fontSize: 'var(--body-font-size)' }}
+            >
+              Line Haul
+            </Link>
+            <Label variant="secondary">Padang DC</Label>
+          </Stack>
         </Stack>
       </div>
     </header>

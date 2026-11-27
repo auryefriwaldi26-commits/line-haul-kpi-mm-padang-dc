@@ -5,9 +5,16 @@ import { AppHeader } from '@/components/app-header'
 import { CreateShipmentDialog } from '@/components/dashboard/create-shipment-dialog'
 import { ShipmentsTable } from '@/components/dashboard/shipments-table'
 import { StatsCards } from '@/components/dashboard/stats-cards'
+import { LineHaulSummary } from '@/components/line-haul/line-haul-summary'
 import type { ShipmentRow } from '@/lib/shipments'
 
-export function DashboardView({ shipments }: { shipments: ShipmentRow[] }) {
+export function DashboardView({
+  shipments,
+  routeCount,
+}: {
+  shipments: ShipmentRow[]
+  routeCount: number | null
+}) {
   return (
     <>
       <AppHeader />
@@ -27,6 +34,7 @@ export function DashboardView({ shipments }: { shipments: ShipmentRow[] }) {
         </PageLayout.Header>
         <PageLayout.Content as="main">
           <Stack direction="vertical" gap="spacious">
+            <LineHaulSummary routeCount={routeCount} />
             <StatsCards shipments={shipments} />
             <ShipmentsTable shipments={shipments} />
           </Stack>
