@@ -1,3 +1,4 @@
+import { sql } from 'drizzle-orm'
 import {
   date,
   index,
@@ -7,6 +8,7 @@ import {
   serial,
   text,
   timestamp,
+  uniqueIndex,
 } from 'drizzle-orm/pg-core'
 
 export const shipments = pgTable('shipments', {
@@ -49,5 +51,37 @@ export const shipmentEvents = pgTable(
       table.shipmentId,
       table.createdAt.desc(),
     ),
+  ],
+)
+
+/**
+ * Rute line haul hasil impor dari Google Sheets jadwal (mis. tab "Padang DC").
+ * Satu baris = satu rute asal DC menuju deret hub tujuan.
+ */
+export const lineHaulRoutes = pgTable(
+  'line_haul_routes',
+  {
+    id: serial('id').primaryKey(),
+    origin: text('origin').notNull(),
+    routeLabel: text('route_label').notNull(),
+    stops: text('stops')
+      .array()
+      .notNull()
+      .default(sql`ARRAY[]::text[]`),
+    scheme: text('scheme'),
+    scheduleIndicator: text('schedule_indicator').notNull().default('off'),
+    cotLabel: text('cot_label'),
+    sourceSheet: text('source_sheet'),
+    sourceRow: integer('source_row'),
+    importedAt: timestamp('imported_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [
+    uniqueIndex('line_haul_routes_origin_route_idx').on(
+      table.origin,
+      table.routeLabel,
+    ),
+    index('line_haul_routes_origin_idx').on(table.origin),
   ],
 )
